@@ -12,10 +12,10 @@ RUN apt-get install -y wget cmake git
 RUN pip install numpy scipy
 
 # Download and extract OpenCV.
-RUN wget -O opencv.tar.gz https://github.com/opencv/opencv/archive/3.2.0.tar.gz
+RUN wget -O opencv.tar.gz https://github.com/opencv/opencv/archive/3.3.0-rc.tar.gz
 RUN mkdir opencv && tar -xvf opencv.tar.gz -C opencv --strip-components=1
 RUN wget -O opencv_contrib.tar.gz \
-    https://github.com/opencv/opencv_contrib/archive/3.2.0-rc.tar.gz
+    https://github.com/opencv/opencv_contrib/archive/3.3.0-rc.tar.gz
 RUN mkdir opencv_contrib && tar -xvf opencv_contrib.tar.gz -C opencv_contrib \
     --strip-components=1
 
