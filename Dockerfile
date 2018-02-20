@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-devel
+FROM tensorflow/tensorflow:latest-gpu
 MAINTAINER Daniel Petti
 
 # Install dependencies.
@@ -8,6 +8,8 @@ RUN apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev \
     libatlas-base-dev gfortran libhdf5-serial-dev
 RUN apt-get install -y python2.7-dev python-pip
 RUN apt-get install -y wget cmake git
+# Install packages for tracking.
+RUN apt-get install -y python-liblinear python-matplotlib
 
 RUN pip install numpy scipy
 
@@ -31,9 +33,6 @@ RUN cd opencv/build && \
     -D INSTALL_PYTHON_EXAMPLES=ON \
     -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
     ..
-RUN cd opencv/build && make -j12
-RUN cd opencv/build && make install
+RUN cd opencv/build && make -j32
+RUN cd opencv/build && make -j32 install
 RUN ldconfig
-
-# Install packages for tracking.
-RUN apt-get install -y python-liblinear python-matplotlib
