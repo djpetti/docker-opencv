@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu
+FROM nvidia/cuda:8.0-devel-ubuntu16.04
 MAINTAINER Daniel Petti
 
 # Prepares the environment for OpenCV install.
