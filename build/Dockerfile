@@ -13,6 +13,6 @@ RUN cd opencv/build && \
     -D INSTALL_PYTHON_EXAMPLES=ON \
     -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
     ..
-RUN cd opencv/build && make -j32
-RUN cd opencv/build && make -j32 install
+RUN cd opencv/build && make -j`grep -c ^processor /proc/cpuinfo`
+RUN cd opencv/build && make -j`grep -c ^processor /proc/cpuinfo`
 RUN ldconfig
