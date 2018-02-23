@@ -1,4 +1,4 @@
-FROM djpetti/docker-opencv-env:latest
+FROM djpetti/docker-opencv-env
 MAINTAINER Daniel Petti
 
 # Build opencv.
